@@ -47,7 +47,8 @@ angular.module('angular-medium-editor', [])
         });
 
         scope.$watch('bindOptions', function(bindOptions) {
-          ngModel.editor.init(iElement, bindOptions);
+          ngModel.editor.destroy();
+          ngModel.editor = new MediumEditor(iElement, bindOptions);
         });
 
         scope.$on('$destroy', function() {
